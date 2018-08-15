@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HttpService } from '../http.service'
 
 @Component({
   selector: 'app-seattle',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./seattle.component.css']
 })
 export class SeattleComponent implements OnInit {
-
-  constructor() { }
+  @Input() weatherData:any
+  constructor(private _httpService:HttpService) { }
 
   ngOnInit() {
+    this.getWeather()
+  }
+  getWeather(){
+      var cityObservable=this._httpService.seattle()
+      cityObservable.subscribe(data=>{
+        this.weatherData=data
+      })
   }
 
 }

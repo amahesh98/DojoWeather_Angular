@@ -2,5 +2,10 @@
     <legend>Location</legend>
     <h2>Dallas</h2>
     <img src='https://images.pexels.com/photos/280193/pexels-photo-280193.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' alt='Seattle'>
-    <h3>Weather: </h3>
+    <h3>Weather</h3>
+    <h4>Humidity: {{weatherData.main.humidity}}%</h4>
+    <h4>Temp (Average): {{weatherData.main.temp}} &#8457;</h4>
+    <h4>Temp (Low): {{weatherData.main.temp_min}} &#8457; </h4>
+    <h4>Temp (High): {{weatherData.main.temp_max}} &#8457; </h4>
+    <h4>Status: {{ weatherData.weather[0].main }}</h4>
 </fieldset>

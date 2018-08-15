@@ -9,7 +9,16 @@ import { HttpService } from './http.service'
 })
 export class AppComponent {
   title = 'public';
+  weatherData:any
   constructor(private _httpService: HttpService){
-    
+    this.weatherData={}
+  }
+  getWeather(city:String){
+    if(city=='seattle'){
+      var cityObservable=this._httpService.seattle()
+      cityObservable.subscribe(data=>{
+        this.weatherData=data
+      })
+    }
   }
 }
